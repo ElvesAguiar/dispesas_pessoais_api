@@ -6,6 +6,7 @@ import com.elves.expensesApi.models.Transaction;
 import com.elves.expensesApi.repositories.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,10 +14,13 @@ import java.util.List;
 public class TransactionService {
     @Autowired
     private TransactionRepository repository;
+
+    @Transactional(readOnly = true)
     public List<TransactionDto> findAll (){
         return repository.findAll().stream().map(tr -> new TransactionDto(tr)).toList();
     }
 
+    @Transactional
     public TransactionDto insert(TransactionDto dto){
         Transaction tr = new Transaction();
 
@@ -29,6 +33,7 @@ public class TransactionService {
         return dto;
     }
 
+    @Transactional
     public void delete(Long id){
         Transaction tr = repository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Recurso não encontrado!"));
 
