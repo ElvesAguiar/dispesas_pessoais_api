@@ -1,9 +1,9 @@
 package com.elves.expensesApi.services;
 
 import com.elves.expensesApi.dto.TransactionDto;
+import com.elves.expensesApi.services.exceptions.ResourceNotFoundException;
 import com.elves.expensesApi.models.Transaction;
 import com.elves.expensesApi.repositories.TransactionRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +30,7 @@ public class TransactionService {
     }
 
     public void delete(Long id){
-        Transaction tr = repository.findById(id).orElseThrow(()-> new EntityNotFoundException());
+        Transaction tr = repository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Recurso não encontrado!"));
 
         repository.deleteById(tr.getId());
     }
