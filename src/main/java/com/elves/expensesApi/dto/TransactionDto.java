@@ -1,13 +1,22 @@
 package com.elves.expensesApi.dto;
 
 import com.elves.expensesApi.models.Transaction;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 
 import java.util.Date;
 
 public class TransactionDto {
     private String id;
+
+    @NotBlank(message = "Campo não pode ser vazio.")
     private String title;
+
+    @NotNull(message = "Campo não pode ser nulo.")
     private Double value;
+
+    @NotNull(message = "Campo não pode ser nulo.")
     private Date date;
 
     public TransactionDto() {

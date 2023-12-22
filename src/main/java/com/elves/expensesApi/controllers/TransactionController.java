@@ -2,6 +2,7 @@ package com.elves.expensesApi.controllers;
 
 import com.elves.expensesApi.dto.TransactionDto;
 import com.elves.expensesApi.services.TransactionService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class TransactionController {
         return ResponseEntity.ok().body(service.findAll());
     }
     @PostMapping
-    public ResponseEntity<TransactionDto> insert(@RequestBody TransactionDto dto){
+    public ResponseEntity<TransactionDto> insert( @RequestBody @Valid TransactionDto dto){
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().build().toUri();
         return ResponseEntity.created(uri).body(service.insert(dto));
     }
