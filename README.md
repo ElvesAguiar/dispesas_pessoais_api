@@ -2,6 +2,8 @@
 
 Bem-vindo ao repositório do Backend da aplicação Despesas Pessoais! 🚀
 
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/ElvesAguiar/dscommerce/blob/main/LICENSE) 
+
 ## Descrição
 
 Este projeto foi desenvolvido utilizando Java com Spring Boot para criar uma API REST que gerencia as despesas pessoais do usuário. A aplicação se conecta a um banco de dados PostgreSQL para armazenar os dados.
@@ -28,9 +30,9 @@ Este projeto foi desenvolvido utilizando Java com Spring Boot para criar uma API
 - Banco de Dados: PostgreSQL
 - Controle de Versão: Git
 
-# Obrigado
+## Obrigado
 Sinta-se à vontade para explorar o código, fazer sugestões ou contribuir para o desenvolvimento.
-# Autor
+## Autor
 
 Elves Nogueira de Aguiar
 
